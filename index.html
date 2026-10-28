@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -144,6 +143,27 @@ h2 { font-size:18px; margin:22px 4% 8px; }
   max-width:100%;
 }
 
+/* Dua banner 320x50 di atas video */
+.video-ad-banners {
+  width:100%;
+  overflow:hidden;
+  text-align:center;
+  background:#222;
+}
+.video-ad-unit {
+  width:100%;
+  max-width:320px;
+  min-height:50px;
+  margin:0 auto 6px;
+  overflow:hidden;
+}
+.video-ad-unit:last-child {
+  margin-bottom:0;
+}
+.video-ad-unit iframe {
+  max-width:100%;
+}
+
 .modal {
   position:fixed;
   inset:0;
@@ -226,7 +246,7 @@ footer { padding:28px 4%; color:var(--mut); font-size:12px; }
 
 <main id="rows" aria-live="polite"></main>
 
-<!-- BANNER 3: 320 x 50, menggunakan kode yang sama dengan Banner 2 -->
+<!-- BANNER 3: 320 x 50 -->
 <div class="ad ad-slot">
   <script>
     atOptions = {
@@ -244,10 +264,42 @@ footer { padding:28px 4%; color:var(--mut); font-size:12px; }
 
 <div class="modal" id="m" role="dialog" aria-modal="true">
   <div class="box">
-    <div class="ad">
-      <b data-i="ad"></b><span data-i="ad_modal"></span>
+
+    <!-- DUA BANNER 320 x 50, TERSUSUN VERTIKAL DI ATAS VIDEO -->
+    <div class="video-ad-banners">
+
+      <!-- BANNER VIDEO 1: 320 x 50 -->
+      <div class="video-ad-unit">
+        <script>
+          atOptions = {
+            'key' : '9a02da55e20a4e72835283690d3dcb99',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/9a02da55e20a4e72835283690d3dcb99/invoke.js"></script>
+      </div>
+
+      <!-- BANNER VIDEO 2: 320 x 50 -->
+      <div class="video-ad-unit">
+        <script>
+          atOptions = {
+            'key' : '9a02da55e20a4e72835283690d3dcb99',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/9a02da55e20a4e72835283690d3dcb99/invoke.js"></script>
+      </div>
+
     </div>
+
     <video id="v" controls playsinline preload="metadata"></video>
+
     <div class="txt">
       <h3 id="mt"></h3>
       <small id="mm"></small>
