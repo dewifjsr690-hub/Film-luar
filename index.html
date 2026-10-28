@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -130,6 +131,19 @@ h2 { font-size:18px; margin:22px 4% 8px; }
   padding:8px;
 }
 .ad b { font-size:10px; letter-spacing:2px; color:#777; }
+
+/* Wadah banner: tidak memaksa ukuran iklan berubah */
+.ad-slot {
+  min-height:0;
+  padding:8px 0;
+  border:0;
+  background:transparent;
+  overflow:hidden;
+}
+.ad-slot iframe {
+  max-width:100%;
+}
+
 .modal {
   position:fixed;
   inset:0;
@@ -176,22 +190,54 @@ footer { padding:28px 4%; color:var(--mut); font-size:12px; }
 </header>
 
 <section class="hero">
-  <div class="ad" style="margin:0 0 8px">
-    <b data-i="ad"></b><span data-i="ad_top"></span>
+
+  <!-- BANNER 1: 300 x 250 -->
+  <div class="ad ad-slot" style="margin:0 0 8px">
+    <script>
+      atOptions = {
+        'key' : 'c2265d198ca9e518e04d2ffa1db633ec',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highrevenueformat.com/c2265d198ca9e518e04d2ffa1db633ec/invoke.js"></script>
   </div>
+
   <h1 data-i="hero_t"></h1>
   <p data-i="hero_p"></p>
   <div><button class="play" id="hp" data-i="play" disabled></button></div>
 </section>
 
-<div class="ad">
-  <b data-i="ad"></b><span data-i="ad_mid"></span>
+<!-- BANNER 2: 320 x 50 -->
+<div class="ad ad-slot">
+  <script>
+    atOptions = {
+      'key' : '9a02da55e20a4e72835283690d3dcb99',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highrevenueformat.com/9a02da55e20a4e72835283690d3dcb99/invoke.js"></script>
 </div>
 
 <main id="rows" aria-live="polite"></main>
 
-<div class="ad">
-  <b data-i="ad"></b><span data-i="ad_bot"></span>
+<!-- BANNER 3: 320 x 50, menggunakan kode yang sama dengan Banner 2 -->
+<div class="ad ad-slot">
+  <script>
+    atOptions = {
+      'key' : '9a02da55e20a4e72835283690d3dcb99',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highrevenueformat.com/9a02da55e20a4e72835283690d3dcb99/invoke.js"></script>
 </div>
 
 <footer data-i="foot"></footer>
@@ -266,7 +312,7 @@ var D = {
     hero_p:"Descubre películas en NontonYuk",
     play:"▶ Reproducir",
     ad:"ANUNCIO",
-    ad_top:"Banner sobre el título (970×90)",
+    ad_top:"Banner sobre el título",
     ad_mid:"Banner superior",
     ad_bot:"Banner inferior",
     ad_modal:"Banner sobre el video",
@@ -312,7 +358,6 @@ function el(tag, cls, txt) {
   return e;
 }
 
-// Menangani nama file media atau URL absolut.
 function mediaUrl(value) {
   if (!value || typeof value !== "string") return "";
 
@@ -324,7 +369,6 @@ function mediaUrl(value) {
     return window.location.protocol + value;
   }
 
-  // Worker menerima nama file melalui endpoint /media/.
   value = value.replace(/^\/+/, "");
   value = value.replace(/^media\//i, "");
 
@@ -557,8 +601,6 @@ try {
 
 apply();
 
-// Mengambil data film dari Worker.
-// Respons yang diharapkan berupa array JSON berisi data film.
 async function loadFilms() {
   state = "loading";
   render();
@@ -576,7 +618,6 @@ async function loadFilms() {
 
     var data = await response.json();
 
-    // Mendukung array JSON atau objek yang memiliki array films.
     if (Array.isArray(data)) {
       films = data;
     } else if (data && Array.isArray(data.films)) {
@@ -585,7 +626,6 @@ async function loadFilms() {
       throw new Error("Format data film tidak sesuai");
     }
 
-    // Abaikan entri yang tidak mempunyai judul.
     films = films.filter(function(f) {
       return f && typeof f === "object" &&
         (f.title || f.name);
@@ -606,7 +646,9 @@ async function loadFilms() {
 
 loadFilms();
 </script>
-  <script src="https://pl32073841.profitableratecpmnetwork.com/a6/bf/50/a6bf5025601fc36ad67566786547144d.js"></script>
+
+<!-- Script iklan lama dipertahankan -->
+<script src="https://pl32073841.profitableratecpmnetwork.com/a6/bf/50/a6bf5025601fc36ad67566786547144d.js"></script>
+
 </body>
-                       </html>
-                       
+</html>
